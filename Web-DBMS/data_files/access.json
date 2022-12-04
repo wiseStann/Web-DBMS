@@ -1,0 +1,18 @@
+{
+  "director": [
+    "bp_auth.start_auth",
+    "bp_query",
+    "bp_report"
+  ],
+
+  "admin": [
+    "bp_auth.start_auth",
+    "bp_query.queries_2",
+    "bp_report.view_rep1"
+  ],
+
+  "external": [
+    "bp_auth.start_auth",
+    "bp_order"
+  ]
+}

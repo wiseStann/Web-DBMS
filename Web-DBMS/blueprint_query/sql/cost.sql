@@ -1,0 +1,1 @@
+select * from product where prod_category='$input_prod_category'

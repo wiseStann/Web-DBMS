@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block external_user %}
+    <p align="center">
+        <a href="{{ url_for('bp_query.queries_1') }}">Найти продукт по названию</a> <br><br>
+        <a href="{{ url_for('bp_query.queries_2') }}">Найти продукт по категории</a> <br><br>
+        <a href="{{ url_for('bp_report.start_report') }}">Отчеты</a> <br><br>
+        <a href="/exit"> Нажмите для выхода из системы</a>
+    </p>
+{% endblock %}

@@ -1,0 +1,1 @@
+insert external_user values(NULL, NULL, '$login', '$password')

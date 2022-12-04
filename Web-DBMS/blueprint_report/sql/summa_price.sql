@@ -1,0 +1,1 @@
+select prod_id, prod_col, rep_month, rep_year from product_report where rep_month = '$input_month' and rep_year = '$input_year'

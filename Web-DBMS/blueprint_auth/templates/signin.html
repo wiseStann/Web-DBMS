@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authentification</title>
+    <link type="text/css" rel="stylesheet" href="/static/sem3.css">
+    <title>Авторизация</title>
+
+</head>
+<body>
+    <h1 align="center"> Авторизируйтесь</h1>
+    <div align="center">
+        <form method="post" action="">
+            <label for="login"> Логин</label>
+            <input class="login_password_form" type="text" id="login" name="login">
+
+            <label for="password"> Пароль</label>
+            <input class="login_password_form" type="password" name="password" id="password">
+
+            <input type="submit" class="submit" value="Отправить">
+        </form>
+        <h2 align="center">{{ message }}</h2>
+    </div>
+</body>
+</html>
