@@ -1,11 +1,11 @@
 {
-  "director": [
+  "secretary": [
     "bp_auth.start_auth",
     "bp_query",
     "bp_report"
   ],
 
-  "admin": [
+  "worker": [
     "bp_auth.start_auth",
     "bp_query.queries_2",
     "bp_report.view_rep1"

@@ -2,14 +2,14 @@ import os
 from typing import Optional, Dict
 
 from flask import Blueprint, request, render_template, current_app, session, redirect, url_for
-from db_work import select_dict, insert
+from db_work import select_dict
 from sql_provider import SQLProvider
 
 blueprint_auth = Blueprint('bp_auth', __name__, template_folder='templates')
 provider = SQLProvider(os.path.join(os.path.dirname(__file__), 'sql'))
 
 
-@blueprint_auth.route('/auth', methods=['GET', 'POST'])
+@blueprint_auth.route('/', methods=['GET', 'POST'])
 def start_auth():
     if request.method == 'GET':
         return render_template('signin.html')
@@ -20,8 +20,12 @@ def start_auth():
             user_info = define_user(login, password)
             if user_info:
                 user_dict = user_info[0]
+                print("USER DICT:", user_dict)
                 session['user_id'] = user_dict['user_id']
-                session['user_group'] = user_dict['user_group']
+                if user_dict['user_group']:
+                    session['user_group'] = user_dict['user_group']
+                else:
+                    session['user_group'] = 'external'
                 session.permanent = True
                 return redirect(url_for('menu_choice'))
             else:

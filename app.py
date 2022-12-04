@@ -24,14 +24,12 @@ app.config['report_url'] = json.load(open('data_files/report_url.json', encoding
 @app.route('/', methods=['GET', 'POST'])
 def menu_choice():
     if 'user_id' in session:
-        if session.get('user_group', None):
+        if session.get('user_group') != 'external':
             return render_template('internal_user_menu.html')
         else:
             return render_template('external_user_menu.html')
     else:
         return render_template('start_page.html')
-        # return redirect(url_for('bp_auth.start_auth'))
-
 
 @app.route('/exit')
 def exit_func():
