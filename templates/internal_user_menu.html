@@ -1,9 +1,39 @@
-{% extends 'base.html' %}
-{% block external_user %}
-    <p align="center">
-        <a href="{{ url_for('bp_query.queries_1') }}">Найти продукт по названию</a> <br><br>
-        <a href="{{ url_for('bp_query.queries_2') }}">Найти продукт по категории</a> <br><br>
-        <a href="{{ url_for('bp_report.start_report') }}">Отчеты</a> <br><br>
-        <a href="/exit"> Нажмите для выхода из системы</a>
-    </p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/users_menu.css">
+    <link rel="stylesheet" href="/static/back-button.css">
+
+    <title>Услуги</title>
+</head>
+<body>
+
+    {% extends 'base.html' %}
+    {% block internal_user %}
+    
+    <div class="menu">
+            <h1>
+                <form method="post" action="">
+                    <button type="submit" name="back-button" class="back-img-btn"><img src="/static/back-button.png"></button>
+                </form>
+                Вам доступны следующие действия
+            </h1>
+
+            <div class="services-block">
+                <ol>
+                    {% if admin %}
+                        <li><a href="{{ url_for('bp_query.queries') }}">Выполнить запрос</a></li>
+                    {% endif %}
+                    <li><a href="{{ url_for('bp_report.start_report') }}">Управление отчетами</a></li>
+                </ol>
+            </div>
+
+        </div>
+
+    {% endblock %}
+
+</body>
+</html>

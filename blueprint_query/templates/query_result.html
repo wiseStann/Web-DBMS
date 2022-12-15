@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат поиска продукта</title>
+    <link type="text/css" rel="stylesheet" href="/static/query_result.css">
+    <link rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/back-button.css">
+</head>
+<body>
+
+    {% extends 'base.html' %}
+    {% block query_result %}
+        <div class="result-block">
+            <h1>
+                <form method="post" action="">
+                    <button type="submit" name="back-button" class="back-img-btn"><img src="/static/back-button.png"></button>
+                </form>
+                Найденный товар
+            </h1>
+
+            {% if result %}
+                <table class="result-table">
+                    <tr>
+                        <td>Товар</td>
+                        <td>Количество</td>
+                        <td>Цена</td>
+                        <td>Категория</td>
+                    </tr>
+                    {% for line in result %}
+                    <tr>
+                        <td>{{line[1]}}</td>
+                        <td>{{line[2]}}</td>
+                        <td>{{line[3]}}</td>
+                        <td>{{line[4]}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <h2>Ничего не найдено</h2>
+            {% endif %}
+        </div>
+    {% endblock %}
+
+</body>
+</html>

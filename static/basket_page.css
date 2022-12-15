@@ -1,0 +1,71 @@
+.basket-btn {
+    position: absolute;
+    top: 10vh;
+    left: 2ch;
+    padding: 10px;
+    border: 1px solid #5F4B8B;
+    border-radius: 1px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 20px;
+    color: #5F4B8B;
+    background-color: white;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.basket-btn:hover {
+    transition: all 0.5s;
+    background-color: #5F4B8B;
+    color: white;
+}
+
+.product-list {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    padding: 40px;
+    border-radius: 1px;
+    background-color: white;
+    min-width: 15vw;
+    min-height: 10vh;
+    transition: 0.5s;
+    color: #5F4B8B;
+}
+
+.product:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.5s;
+}
+
+.submit-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #5F4B8B;
+    border-radius: 1px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 20px;
+    color: #5F4B8B;
+    background-color: white;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.submit-btn:hover {
+    transition: all 0.5s;
+    background-color: #5F4B8B;
+    color: white;
+}

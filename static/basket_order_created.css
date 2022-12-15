@@ -1,0 +1,7 @@
+.created-order-block {
+    display: flex;
+    align-items: center;
+    color: #5F4B8B;
+    padding: 50px;
+    background-color: white;
+}

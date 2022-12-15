@@ -2,7 +2,7 @@ from flask import *
 from functools import wraps
 
 
-def login_required(func):#проверка на наличие акка
+def login_required(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         if 'user_id' in session:

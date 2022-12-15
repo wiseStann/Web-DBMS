@@ -2,24 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Authentification</title>
-    <link type="text/css" rel="stylesheet" href="/static/sem3.css">
+    <link type="text/css" rel="stylesheet" href="../../static/base.css">
+    <link rel="stylesheet" href="../../static/login-forms.css">
     <title>Авторизация</title>
 
 </head>
 <body>
-    <h1 align="center"> Авторизируйтесь</h1>
-    <div align="center">
-        <form method="post" action="">
-            <label for="login"> Логин</label>
-            <input class="login_password_form" type="text" id="login" name="login">
+    {% extends 'base.html' %}
+    {% block signin %}
 
-            <label for="password"> Пароль</label>
-            <input class="login_password_form" type="password" name="password" id="password">
-
-            <input type="submit" class="submit" value="Отправить">
-        </form>
-        <h2 align="center">{{ message }}</h2>
-    </div>
+        <div class="login-block">
+            <h1> Авторизируйтесь</h1>
+            <div>
+                <form method="post" action="" autocomplete="off">
+                    <input class="login_password_form" type="text" id="login" name="login" placeholder="Логин" autocomplete="off">
+                    <input class="login_password_form" type="password" name="password" placeholder="Пароль" autocomplete="off">
+    
+                    <button class="submit-btn" type="submit">Войти</button>
+                </form>
+                <h2>{{ message }}</h2>
+            </div>
+        </div>
+    
+    {% endblock %}
 </body>
 </html>

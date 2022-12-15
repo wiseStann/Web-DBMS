@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/basket_orders_list.css">
+    <link rel="stylesheet" href="/static/back-button.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% extends 'base.html' %}
+    {% block basket_order_list %}
+
+        <div class="basket-page-block">
+            <div class="basket-orders-options">
+                <form action="" method="post">
+                    <button name="save-order-btn" type="submit" class="submit-btn">Оформить заказ</a>
+                    <button name="clear-basket-btn" type="submit" class="submit-btn">Очистить корзину</button>
+                </form>
+            </div>
+
+            <div class="basket-block">
+                <h1>
+                    <form method="post" action="">
+                        <button type="submit" name="back-button" class="back-img-btn"><img src="/static/back-button.png"></button>
+                    </form>
+                    Ваша корзина
+                </h1>
+                
+                    {% if basket %}
+                        {% for key in basket %}
+                            <div class="basket-product">
+                                <h3>{{ basket[key]['amount']}}шт. {{ basket[key]['prod_name'] }} по цене {{ basket[key]['prod_price'] }}</h3>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <h3>Ваша корзина пуста</h3>
+                    {% endif %}
+            </div>
+        </div>
+
+    {% endblock %}
+
+</body>
+</html>

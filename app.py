@@ -1,17 +1,17 @@
-from flask import Flask, url_for, render_template, json, session, redirect
+from flask import Flask, request, url_for, render_template, json, session, redirect
 
 from blueprint_auth.route import blueprint_auth
 from blueprint_query.route import blueprint_query
 from blueprint_basket.route import blueprint_order
 from blueprint_report.route import blueprint_report
 
-from access import login_required
+from access import login_required, group_required
 
 app = Flask(__name__)
 app.secret_key = 'Superley'
 
 app.register_blueprint(blueprint_auth, url_prefix='/auth')
-app.register_blueprint(blueprint_query, url_prefix='/requests')
+app.register_blueprint(blueprint_query, url_prefix='/queries')
 app.register_blueprint(blueprint_order, url_prefix='/order')
 app.register_blueprint(blueprint_report, url_prefix='/report')
 
@@ -24,12 +24,21 @@ app.config['report_url'] = json.load(open('data_files/report_url.json', encoding
 @app.route('/', methods=['GET', 'POST'])
 def menu_choice():
     if 'user_id' in session:
-        if session.get('user_group') != 'external':
-            return render_template('internal_user_menu.html')
-        else:
-            return render_template('external_user_menu.html')
+        return render_template('base.html', base=True, auth=True)
     else:
-        return render_template('start_page.html')
+        return render_template('base.html', base=True, auth=False)
+
+@app.route('/services', methods=['GET', 'POST'])
+@login_required
+@group_required
+def services():
+    if request.method == 'GET':
+        if session.get('user_group') == 'external':
+            return render_template('external_user_menu.html')
+        is_admin = (session.get('user_group') == 'admin')
+        return render_template('internal_user_menu.html', admin=is_admin)
+    else:
+        return redirect('/')
 
 @app.route('/exit')
 def exit_func():

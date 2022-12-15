@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Отчет</title>
+    <link rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/report_result.css">
+    <link rel="stylesheet" href="/static/back-button.css">
+</head>
+<body>
+
+    {% extends 'base.html' %}
+    {% block report_result %}
+        <div class="report-result-block">
+            <h1>
+                <form method="post" action="">
+                    <button type="submit" name="back-button" class="back-img-btn"><img src="/static/back-button.png"></button>
+                </form>
+                Отчет
+            </h1>
+            
+            <table>
+                <tr>
+                    {% for column in schema %}
+                        <td>{{column}}</td>
+                    {% endfor %}
+                </tr>
+                {% for line in result %}
+                    <tr>
+                        {% for column in line %}
+                            <td>{{column}}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endblock %}
+
+</body>
+</html>

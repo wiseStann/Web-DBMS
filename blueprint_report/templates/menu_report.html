@@ -3,22 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-        <link type="text/css" rel="stylesheet" href="/static/design_list.css">
-    
+    <link rel="stylesheet" href="/static/reports_main.css">
+    <link type="text/css" rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/back-button.css">
 </head>
 <body>
-    <h2 align = center>Меню работы с отчетами</h2><br><br>
-    <center>
-        {% for report in report_list %}
-            <form action='' method = 'POST'>
-                <label for="create_rep" class="named_list">{{report['rep_name']}}</label>
-                <input type=submit name="create_rep" id=create_rep value="Создать" >
-                <input type="submit" name="view_rep" value="Смотреть">
-                <input type="hidden" name="rep_id" value={{report['rep_id']}}>
-            </form>
-        {% endfor %}
-            <br><br><br><br><br><br><br><br><br><br>
-            <a href="{{url_for('menu_choice')}}"> Возврат в главное меню </a> <br><br>
-    </center>
+
+    {% extends 'base.html' %}
+    {% block menu_report %}
+
+        <div class="menu-report-block">
+            <h1>
+                <form method="post" action="">
+                    <button type="submit" name="back-button" class="back-img-btn"><img src="/static/back-button.png"></button>
+                </form>
+                Меню работы с отчетами
+            </h1>
+
+            {% for report in report_list %}
+                <form action='' method = 'POST'>
+                    <h2>{{report['rep_name']}}</h2>
+                    <div class="buttons">
+                        <input type=submit name="create_rep" id=create_rep value="Создать" >
+                        <input type="submit" name="view_rep" value="Смотреть">
+                    </div>
+
+                    <input type="hidden" name="rep_id" value="{{ report['rep_id'] }}">
+                </form>
+            {% endfor %}
+        
+        </div>
+    {% endblock %}
+
 </body>
 </html>

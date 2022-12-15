@@ -1,0 +1,25 @@
+.refused-block {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    display: flex;
+}
+
+.back-img-btn {
+    border: none;
+    text-decoration: none;
+    margin-right: 15px;
+    margin-top: 8px;
+    background-color: white;
+}
+
+.back-img-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+.back-img-btn:hover {
+    cursor: pointer;
+}

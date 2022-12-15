@@ -16,12 +16,11 @@ provider = SQLProvider(os.path.join(os.path.dirname(__file__), 'sql'))
 @group_required
 def order_index():
 	db_config = current_app.config['db_config']
-
 	if request.method == 'GET':
 		sql = provider.get('all_items.sql')
 		items = select_dict(db_config, sql)
 		basket_items = session.get('basket', {})
-		return render_template('basket_order_list.html', items=items, basket=basket_items)
+		return render_template('basket_products_list.html', items=items, basket=basket_items)
 	else:
 		prod_id = request.form['prod_id']
 		sql = provider.get('all_items.sql')
@@ -31,11 +30,29 @@ def order_index():
 
 		return redirect(url_for('bp_order.order_index'))
 
+@blueprint_order.route('/basket', methods=['GET', 'POST'])
 @group_required
-def add_to_basket(prod_id: str, items:dict):
+def basket_orders():
+	if request.method == 'GET':
+		return render_template('basket_orders_list.html', basket=session.get('basket', {}))
+	else:
+		print(request.form.keys())
+		if 'clear-basket-btn' in request.form.keys():
+			if 'basket' in session:
+				session.pop('basket')
+			return render_template('basket_orders_list.html')
+		elif 'back-button' in request.form.keys():
+			return redirect(url_for('bp_order.order_index'))
+		elif 'save-order-btn' in request.form.keys():
+			return redirect(url_for('bp_order.save_order'))
+		return render_template('basket_orders_list.html')
+
+@group_required
+def add_to_basket(prod_id: str, items: dict):
 	item_description = [item for item in items if str(item['prod_id']) == str(prod_id)]
 	item_description = item_description[0]
 	curr_basket = session.get('basket', {})
+	print("CURRENT BASKET: ", curr_basket)
 
 	if prod_id in curr_basket:
 		curr_basket[prod_id]['amount'] = curr_basket[prod_id]['amount'] + 1
@@ -83,11 +100,3 @@ def save_order_with_list(dbconfig: dict, user_id: int, current_basket: dict):
 					_sql3 = provider.get('insert_order_list.sql',order_id=order_id, prod_id=key, prod_amount=prod_amount)
 					cursor.execute(_sql3)
 				return order_id
-
-
-@blueprint_order.route('/clear-basket')
-@group_required
-def clear_basket():
-	if 'basket' in session:
-		session.pop('basket')
-	return redirect(url_for('bp_order.order_index'))

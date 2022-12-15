@@ -1,0 +1,30 @@
+.queries-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 1px;
+    text-align: left;
+    color: #5F4B8B;
+    transition: 0.5s;
+    padding: 100px;
+}
+
+.queries-block:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.5s;
+}
+
+.queries-block li {
+    font-size: 25px;
+    margin: 10px;
+}
+
+.queries-block li a {
+    color: #5F4B8B;
+    text-decoration: none;
+}
+
+.queries-list-block {
+    margin: 20px
+}

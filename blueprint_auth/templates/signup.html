@@ -4,25 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="../../static/base.css">
+    <link rel="stylesheet" href="../../static/login-forms.css">
     <title>Регистрация</title>
 </head>
 <body>
 
-    <h1 align="center">Зарегистрируйтесь</h1>
-    <div align="center">
-        <form method="post" action="">
-            <label for="login"> Логин</label>
-            <input class="login_password_form" type="text" id="login" name="login">
+    {% extends 'base.html' %}
+    {% block signup %}
+    <div class="login-block">
+        <h1>Зарегистрируйтесь</h1>
+        <div>
+            <form method="post" action="" autocomplete="off">
+                <input class="login_password_form" type="text" id="login" name="login" placeholder="Логин">
+                <input class="login_password_form" type="password" name="password1" placeholder="Пароль">
+                <input class="login_password_form" type="password" name="password2" placeholder="Повторите пароль">
 
-            <label for="password"> Пароль</label>
-            <input class="login_password_form" type="password" name="password1" id="password1">
-            <label for="password"> Повторите пароль</label>
-            <input class="login_password_form" type="password" name="password2" id="password2">
-
-            <input type="submit" class="submit" value="Отправить">
-        </form>
-        <h2 align="center">{{ message }}</h2>
+                <button class="submit-btn" type="submit">Создать</button>
+            </form>
+        </div>
+        <h2>{{ message }}</h2>
     </div>
-    
+    {% endblock %}
 </body>
 </html>

@@ -1,0 +1,49 @@
+.basket-orders-options {
+    display: inline-block;
+    justify-content: space-around;
+    background-color: white;
+    margin: 50px;
+}
+
+.basket-orders-options > *{
+    margin: 20px;
+}
+
+.basket-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 100px;
+    color: #5F4B8B;
+}
+
+.submit-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #5F4B8B;
+    border-radius: 1px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 20px;
+    color: #5F4B8B;
+    background-color: white;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.submit-btn:hover {
+    transition: all 0.5s;
+    background-color: #5F4B8B;
+    color: white;
+}
+
+.basket-product {
+    text-align: center;
+    margin: 10px;
+    border: 1px solid #5F4B8B;
+    border-radius: 2px;
+    min-width: 100%;
+}

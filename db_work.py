@@ -23,7 +23,7 @@ def select_dict(db_config: dict, _sql: str):
         schema = [column[0] for column in cursor.description]
         for row in cursor.fetchall():
             result.append(dict(zip(schema, row)))
-        print('result dict=', result)
+        # print('result dict=', result)
     return result
 
 def insert(dbconfig: dict, _sql: str):

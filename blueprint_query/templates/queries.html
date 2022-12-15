@@ -4,30 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/users_menu.css">
+    <link rel="stylesheet" href="/static/queries_main.css">
+    <link rel="stylesheet" href="/static/base.css">
     <link rel="stylesheet" href="/static/back-button.css">
-    <title>Услуги</title>
+    <title>Запросы</title>
 </head>
 <body>
-
+    
     {% extends 'base.html' %}
-    {% block external_user %}
+    {% block queries %}
 
-        <div class="menu">
+        <div class="queries-block">
             <h1>
                 <form method="post" action="">
                     <button type="submit" name="back-button" class="back-img-btn"><img src="/static/back-button.png"></button>
                 </form>
-                Вам доступны следующие действия
+                Вам доступны следующие запросы
             </h1>
 
-            <div class="services-block">
+            <div class="queries-list-block">
                 <ol>
-                    <li><a href="{{ url_for('bp_order.order_index')}}">Заказ товаров</a></li>
+                    <li><a href="{{ url_for('bp_query.query_1') }}">Поиск по названию</a></li>
+                    <li><a href="{{ url_for('bp_query.query_2') }}">Поиск по категории</a></li>
                 </ol>
             </div>
         </div>
-    
+
     {% endblock %}
 
 </body>

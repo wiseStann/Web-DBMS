@@ -1,18 +1,20 @@
 {
-  "secretary": [
+  "admin": [
     "bp_auth.start_auth",
+    "services",
     "bp_query",
     "bp_report"
   ],
 
-  "worker": [
+  "secretary": [
     "bp_auth.start_auth",
-    "bp_query.queries_2",
-    "bp_report.view_rep1"
+    "services",
+    "bp_report"
   ],
 
   "external": [
     "bp_auth.start_auth",
+    "services",
     "bp_order"
   ]
 }

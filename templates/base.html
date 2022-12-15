@@ -2,14 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Menu</title>
-    <link type="text/css" rel="stylesheet" href="static/main.css">
+    <link type="text/css" rel="stylesheet" href="static/base.css">
 </head>
 <body>
-<div>
-    <h1 align="center"> Вам доступны следующие действия</h1>
-    {% block internal_user %}{% endblock %}
-    {% block external_user %}{% endblock %}
-</div>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a class="home" href="/"><img src="/static/home.png" alt=""></a></li>
+                <li><a href="/services">Услуги</a></li>
+                {% if base and auth %}
+                    <li><a href="/exit">Выход</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <div class="img-body">
+        <div class="block">
+            {% block start_page %}{% endblock %}
+            {% block signin %}{% endblock %}
+            {% block signup %}{% endblock %}
+            {% block internal_user %}{% endblock %}
+            {% block external_user %}{% endblock %}
+            {% block basket_list %}{% endblock %}
+            {% block basket_order_list %}{% endblock %}
+            {% block menu_report %}{% endblock %}
+            {% block queries %}{% endblock %}
+            {% block product_query %}{% endblock %}
+            {% block category_query %}{% endblock %}
+            {% block query_result %}{% endblock %}
+            {% block report_create_block %}{% endblock %}
+            {% block report_result %}{% endblock %}
+            {% block order_created %}{% endblock %}
+        </div>
+    </div>
+
 </body>
 </html>

@@ -1,0 +1,21 @@
+.result-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+    background-color: white;
+    transition: 0.5s;
+    color: #5F4B8B;
+}
+
+table {
+    border: 1px solid #5F4B8B;
+    border-collapse: collapse;
+}
+
+tr td {
+    padding: 5px;
+    border: 1px solid #5F4B8B;
+    font-size: 25px;
+    text-align: center;
+}

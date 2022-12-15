@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск товара</title>
+    <link type="text/css" rel="stylesheet" href="/static/query_form.css">
+    <link rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/back-button.css">
+    </style>
+</head>
+<body>
+
+    {% extends 'base.html' %}
+    {% block product_query %}
+        <div class="query-form-block">
+            <h1>
+                <form method="post" action="">
+                    <button type="submit" name="back-button" class="back-img-btn"><img src="/static/back-button.png"></button>
+                </form>
+                Введите название товара
+            </h1>
+            <div>
+                <form class="form-block" action="" method="POST">
+                    <input name="product_name" id="product" type="text" placeholder="Название товара" autocomplete="off">
+                    <button class="search-btn" type="submit">Поиск</button>
+                </form>
+            </div>
+        </div>
+    {% endblock %}
+
+</body>
+</html>

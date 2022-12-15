@@ -2,7 +2,7 @@ import os
 from typing import Optional, Dict
 
 from flask import Blueprint, request, render_template, current_app, session, redirect, url_for
-from db_work import select_dict
+from db_work import select_dict, insert
 from sql_provider import SQLProvider
 
 blueprint_auth = Blueprint('bp_auth', __name__, template_folder='templates')

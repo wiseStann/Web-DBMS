@@ -1,0 +1,58 @@
+.report-create-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+    background-color: white;
+    color: #5F4B8B;
+}
+
+.from-block {
+    text-align: center;
+}
+
+.report-create-block form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.report-create-block form input {
+    margin: 10px;
+    border: 1px solid #5F4B8B;
+    font-size: 22px;
+    outline: none;
+    width: 70%;
+}
+
+.submit-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #5F4B8B;
+    border-radius: 1px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 20px;
+    color: #5F4B8B;
+    width: 50%;
+    background-color: white;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.submit-btn:hover {
+    transition: all 0.5s;
+    background-color: #5F4B8B;
+    color: white;
+}
+
+.success-msg {
+    color: green;
+}
+
+.error-msg {
+    color: red;
+}
